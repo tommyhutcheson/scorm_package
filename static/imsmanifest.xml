@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="{{title}}" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lom="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+<metadata>
+<schema>ADL SCORM</schema>
+<schemaversion>1.2</schemaversion>
+<lom:lom>
+<lom:general>
+<lom:title>
+<lom:langstring>{{title}}</lom:langstring>
+</lom:title>
+</lom:general>
+<lom:educational>
+<lom:typicallearningtime>
+<lom:datetime>00:00:00</lom:datetime>
+</lom:typicallearningtime>
+</lom:educational>
+</lom:lom>
+</metadata>
+<organizations default="{{title}}_organization">
+<organization identifier="{{title}}_organization">
+<title>{{title}}</title>
+<item identifier="item" identifierref="resource">
+<title>{{title}}</title>
+</item>
+</organization>
+</organizations>
+<resources>
+    <resource identifier="resource" type="webcontent" adlcp:scormtype="sco" href="{{starting_resource}}">
+      {% for resource in resourcelist %}
+            <file href="{{resource}}" />
+      {% endfor %}
+    </resource>
+</resources>
+</manifest>
